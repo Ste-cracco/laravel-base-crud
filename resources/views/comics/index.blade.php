@@ -13,9 +13,16 @@
         <tbody>
             @foreach ($comics as $item)
                 <tr>
-                    <td> {{$item->id}} </td>
-                    <td> {{$item->title}} </td>
-                    <td> {{$item->description}} </td>
+                    <td> 
+                         {{$item->id}} 
+                    </td>
+                    <td> 
+                         <a href=" {{ route('comics.show', $item->id) }}"> {{$item->title}} </a> 
+                         {{-- $item->id = ['comics' => $item->id] --}}
+                    </td>
+                    <td> 
+                         {{$item->description}}
+                    </td>
                 </tr>
             @endforeach
         </tbody>
