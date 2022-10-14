@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comics;
 use Illuminate\Http\Request;
 
 class ComicsController extends Controller
@@ -14,6 +15,8 @@ class ComicsController extends Controller
     public function index()
     {
         //
+        $comics = Comics::all();
+        return view('comics.index', compact('comics')); //comics.index riguada il file index nella cartella comics
     }
 
     /**
