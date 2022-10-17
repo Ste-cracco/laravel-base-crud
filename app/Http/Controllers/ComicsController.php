@@ -27,6 +27,7 @@ class ComicsController extends Controller
     public function create()
     {
         //
+        return view('comics.create');
     }
 
     /**
@@ -37,7 +38,28 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comics = $request->all();
+
+        $c = new Comics();
+
+        // Assegnazione variabili al model
+        
+        // $c->name = $comics['title'];
+        // $c->description = $comics['description'];
+        // $c->thumb = $comics['thumb'];
+        // $c->price = $comics['price'];
+        // $c->series = $comics['series'];
+        // $c->sale_date = $comics['sale_date'];
+        // $c->type = $comics['type'];
+
+        $c->fill($comics);
+
+        $c->save();
+
+        // É possibile fare tutte queste operazioni con:
+        // $c = Comics::create($comics)
+
+        return redirect()->route('comics.show', $c);
     }
 
     /**

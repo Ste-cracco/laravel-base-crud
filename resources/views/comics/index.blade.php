@@ -1,6 +1,15 @@
 @extends('layout.app')
 
 @section('content')
+    
+    <section>
+        <div class="container">
+            <a href=" {{ route('comics.create') }} "> Aggiungi nuovo Comic </a>
+
+        </div>
+    </section>
+    
+
     <table>
         <thead>
             <tr>
