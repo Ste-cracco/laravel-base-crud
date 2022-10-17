@@ -62,7 +62,7 @@ class ComicsController extends Controller
         // $c->sale_date = $comics['sale_date'];
         // $c->type = $comics['type'];
 
-        $c->fill($comics);
+        $c->fill($comic);
 
         $c->save();
 
@@ -80,9 +80,9 @@ class ComicsController extends Controller
      */
     public function show($id)
     {
-        $comics = Comics::findOrFail($id);
+        $comic = Comics::findOrFail($id);
 
-        return view('comics.show', compact('comics'));
+        return view('comics.show', compact('comic'));
     }
 
     /**
@@ -93,7 +93,9 @@ class ComicsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic = Comics::findOrFail($id);
+
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -105,7 +107,21 @@ class ComicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comic = Comics::findOrFail($id);
+
+        $params = $request->validate([
+            'title' => 'required | max:50',
+            'description' => 'required',
+            'thumb' => 'nullable',
+            'price' => 'required | numeric | not_in:0',
+            'series' => 'required | max:100',
+            'sale_date' => 'required | date',
+            'type' => 'required | max:30',
+        ]);
+
+        $comic->update($params);
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

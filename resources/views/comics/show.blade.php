@@ -3,13 +3,13 @@
 @section('content')
     <div class="contanier">
         <div class="container_card">
-            <h1> {{ $comics->title }} </h1>
-            <img src="{{ $comics->thumb }}" alt="{{ $comics->title }}">
-            <p> {{ $comics->description }} </p>
-            <span> € {{ $comics->price }} </span>
-            <span> {{ $comics->series }} </span>
-            <span> {{ $comics->sale_date }} </span>
-            <span> {{ $comics->type }} </span>
+            <h1> {{ $comic->title }} </h1>
+            <img src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
+            <p> {{ $comic->description }} </p>
+            <span> € {{ $comic->price }} </span>
+            <span> {{ $comic->series }} </span>
+            <span> {{ $comic->sale_date }} </span>
+            <span> {{ $comic->type }} </span>
         </div>
     </div>
 @endsection

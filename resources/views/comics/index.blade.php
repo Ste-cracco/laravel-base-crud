@@ -32,6 +32,9 @@
                     <td> 
                          {{$item->description}}
                     </td>
+                    <td>
+                        <a href="{{ route('comics.edit', $item) }}">Modifica</a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
