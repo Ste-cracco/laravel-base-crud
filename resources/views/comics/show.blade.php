@@ -11,5 +11,16 @@
             <span> {{ $comic->sale_date }} </span>
             <span> {{ $comic->type }} </span>
         </div>
+        <a href="{{ route('comics.edit', $comic) }}"> Modifica Comic </a>
+
+        <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+            @csrf
+            @method('DELETE')
+
+            <input type="submit" value="Elimina">
+
+        </form>
+       
+        <a href="{{ route('comics.destroy', $comic) }}"> Elimina Comic </a>
     </div>
 @endsection
