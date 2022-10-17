@@ -62,7 +62,7 @@ class ComicsController extends Controller
         // $c->sale_date = $comics['sale_date'];
         // $c->type = $comics['type'];
 
-        $c->fill($comic);
+        $c->fill($params);
 
         $c->save();
 

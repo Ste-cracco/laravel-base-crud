@@ -20,7 +20,6 @@
             <input type="submit" value="Elimina">
 
         </form>
-       
-        <a href="{{ route('comics.destroy', $comic) }}"> Elimina Comic </a>
+    
     </div>
 @endsection
